@@ -16,6 +16,12 @@ choco install vagrant
 vagrant up
 ```
 
+### Connect to Virtual machine on SSH
+
+```shell
+vagrant ssh
+```
+
 #### If SSH error is occured
 
 ```
@@ -32,8 +38,15 @@ https://stackoverflow.com/questions/38824666/vagrant-up-server-not-starting-beca
 ### Testing
 
 ```shell
+vagrant ssh
 podman pull nginx
 podman run -p 8080:80 nginx
+```
+
+### Shutdown virtual machine
+
+```shell
+vagrant halt
 ```
 
 ### Destroy vitural machine
