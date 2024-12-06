@@ -29,8 +29,7 @@ vagrant ssh
 ```
 
 ```shell
-vagrant halt
-vagrant up --provision
+vagrant halt; vagrant up --provision
 ```
 
 https://stackoverflow.com/questions/38824666/vagrant-up-server-not-starting-because-a-ssh-library-issue
