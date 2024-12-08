@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Pull the latest OpenLDAP image
-podman pull $LDAP_IMAGE
+# podman pull $LDAP_IMAGE
 
 # Run the OpenLDAP container
 podman run -d \
+    --pod ${LDAP_POD_NAME} \
     --name $LDAP_CONTAINER_NAME \
-    --network $PRIVATE_NETWORK_NAME \
     -e LDAP_ADMIN_PASSWORD=$LDAP_ADMIN_PASSWORD \
     -e LDAP_ORGANISATION=$LDAP_ORGANISATION \
     -e LDAP_DOMAIN=$LDAP_DOMAIN \

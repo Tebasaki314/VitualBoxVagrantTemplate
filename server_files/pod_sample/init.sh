@@ -8,15 +8,8 @@ set -o allexport
 source "${SCRIPT_DIR}/.env"
 set -o allexport
 
-${SCRIPT_DIR}/scripts/create_network.sh
-${SCRIPT_DIR}/scripts/create_container_ldap_server.sh
-${SCRIPT_DIR}/scripts/create_container_php_ldap_admin.sh
-${SCRIPT_DIR}/scripts/create_container_nginx_proxy.sh
-# ${SCRIPT_DIR}/scripts/create_container_ldap_account_manager.sh
-# echo "Hello, World!"
+${SCRIPT_DIR}/networks/create_network.sh
 
-# echo "The directory name of the script $(basename $0) is: $(dirname $0)"
+${SCRIPT_DIR}/pods/ldap_pod/create_pod_ldap.sh
 
-# $(dirname "$0")/scripts/test.sh
-
-# echo $HOST_DIR
+${SCRIPT_DIR}/pods/proxy_pod/create_pod_proxy.sh

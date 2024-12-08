@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "[Start] Creating the public and private network..."
+
 # Create public bridge network using podman with specified subnet and gateway
 podman network create --driver bridge --subnet $PUBLIC_SUBNET --gateway $PUBLIC_GATEWAY $PUBLIC_NETWORK_NAME
 
@@ -19,3 +21,5 @@ if [ $? -eq 0 ]; then
 else
     echo "Failed to create internal bridge network '$PRIVATE_NETWORK_NAME'."
 fi
+
+echo "[End] Creating the public and private network."

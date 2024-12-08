@@ -53,3 +53,24 @@ vagrant halt
 ```shell
 vagrant destroy -f
 ```
+
+## Tips
+
+### Ping test in a test container
+
+Ping command needs the "NET_RAW" capability.
+
+```shell
+# Create a test container in host.
+sudo podman run -d \
+    --pod proxy_pod \
+    --name test \
+    --cap-add=NET_RAW \
+    nginx:latest
+```
+
+```shell
+# Install ping in container bash
+apt update
+apt install iputils-ping net-tools
+```
