@@ -10,6 +10,18 @@ choco install virtualbox
 choco install vagrant
 ```
 
+### Setup SSL keys for HTTPS connection to localhost
+
+I define hostname `dev.local`.
+
+```powershell
+choco install mkcert
+mkcert -install
+mkcert dev.local
+mv .\dev.local.pem .\server_files\pod_sample\pods\proxy_pod\containers\nginx\conf.d\
+mv .\dev.local-key.pem .\server_files\pod_sample\pods\proxy_pod\containers\nginx\conf.d\
+```
+
 ### Power up virtual machine
 
 ```shell
@@ -22,11 +34,9 @@ vagrant up
 vagrant ssh
 ```
 
-#### If SSH error is occured
+#### If some error is occured
 
-```
-<Vagrant::Errors::NetSSHException:"An error occurred in the underlying SSH library that Vagrant uses.
-```
+Just retry until success.
 
 ```shell
 vagrant halt; vagrant up --provision
