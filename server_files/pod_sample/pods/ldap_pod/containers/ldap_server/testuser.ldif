@@ -1,0 +1,54 @@
+dn: ou=users,dc=dev,dc=local
+objectclass: organizationalUnit
+objectclass: top
+ou: users
+
+dn: ou=wizard,dc=dev,dc=local
+objectclass: organizationalUnit
+objectclass: top
+ou: wizard
+
+dn: cn=test001,ou=users,dc=dev,dc=local
+givenName:test001
+sn:test001
+cn:test001
+mail:test001@dev.local
+userPassword::dGVzdDAwMQ==
+objectClass: inetOrgPerson
+objectClass: top
+
+dn: cn=test002,ou=users,dc=dev,dc=local
+givenName:test002
+sn:test002
+cn:test002
+mail:test002@dev.local
+userPassword::dGVzdDAwMg==
+objectClass: inetOrgPerson
+objectClass: top
+
+dn: cn=test003,ou=users,dc=dev,dc=local
+givenName:test003
+sn:test003
+cn:test003
+mail:test003@dev.local
+userPassword::dGVzdDAwMw==
+objectClass: inetOrgPerson
+objectClass: top
+
+dn: cn=test004,ou=wizard,dc=dev,dc=local
+givenName:test004
+sn:test004
+cn:test004
+mail:test004@dev.local
+userPassword::dGVzdDAwNA==
+objectClass: inetOrgPerson
+objectClass: top
+
+dn: cn=test005,dc=dev,dc=local
+givenName:test005
+sn:test005
+cn:test005
+mail:test005@dev.local
+userPassword::dGVzdDAwNQ==
+objectClass: inetOrgPerson
+objectClass: top

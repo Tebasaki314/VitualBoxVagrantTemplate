@@ -1,0 +1,32 @@
+dn: ou=Mail,dc=dev,dc=local
+objectclass: organizationalUnit
+objectclass: top
+ou: Mail
+
+dn: ou=Manager,dc=dev,dc=local
+objectclass: organizationalUnit
+objectclass: top
+ou: Manager
+
+dn: uid=mail000,ou=Mail,dc=dev,dc=local
+cn: mail000
+gidnumber: 20000
+homedirectory: /home/mail/mail000
+mailacceptinggeneralid: test0@dev.local
+mailacceptinggeneralid: test1@dev.local
+maildrop: mail000@mail.dev.local
+objectclass: account
+objectclass: posixAccount
+objectclass: postfixUser
+objectclass: top
+uid: mail000
+uidnumber: 20000
+userPassword: {SSHA}OlNexz0MwmktWjLl61gCo0fxlcKaaZU+
+
+dn: cn=mailAccountReader,ou=Manager,dc=dev,dc=local
+cn: mailAccountReader
+objectclass: organizationalRole
+objectclass: simpleSecurityObject
+objectclass: top
+userpassword: {SSHA}7sT+Xh8ljOBsUquNi8l06jPxsoWB5cuy
+

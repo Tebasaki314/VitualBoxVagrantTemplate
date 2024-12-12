@@ -1,0 +1,17 @@
+dn: olcDatabase={5}apostfixconfigaaaaaaa,cn=config
+objectclass: olcDatabaseConfig
+objectclass: olcMdbConfig
+olcdatabase: {5}apostfixconfigaaaaaaa
+olcdbcheckpoint: 512 30
+olcdbdirectory: /var/lib/ldap
+olcdbindex: uid eq
+olcdbindex: mail eq
+olcdbindex: memberOf eq
+olcdbindex: entryCSN eq
+olcdbindex: entryUUID eq
+olcdbindex: objectClass eq
+olcdbmaxsize: 1073741824
+olclastmod: TRUE
+olcrootdn: cn=mailAccountReader,ou=Manager,dc=dev,dc=local
+olcrootpw: mailAccountReader
+olcsuffix: dc=dev,dc=local

@@ -20,6 +20,17 @@ mkcert -install
 mkcert dev.local
 mv .\dev.local.pem .\server_files\pod_sample\pods\proxy_pod\containers\nginx\conf.d\
 mv .\dev.local-key.pem .\server_files\pod_sample\pods\proxy_pod\containers\nginx\conf.d\
+
+mkcert mail.dev.local
+mv .\mail.dev.local.pem .\server_files\pod_sample\pods\mail_pod\containers\docker_mailservice\custom-certs\
+mv .\mail.dev.local-key.pem .\server_files\pod_sample\pods\mail_pod\containers\docker_mailservice\custom-certs\
+```
+
+Add the below 2 lines into the file `C:\Windows\System32\drivers\etc\hosts`.
+
+```
+192.168.33.10 dev.local
+192.168.33.10 mail.dev.local
 ```
 
 ### Power up virtual machine
@@ -83,4 +94,14 @@ sudo podman run -d \
 # Install ping in container bash
 apt update
 apt install iputils-ping net-tools
+```
+
+### Insert test users into LDAP server
+
+In virutal machine's console,
+
+```shell
+sudo podman exec -it openldap ldapadd -x -D "cn=admin,dc=dev,dc=local" -w admin -f /openldap/testuser.ldif -ZZ
+sudo podman exec --user=root -it openldap ldapadd -ZZ -x -W -D "cn=admin,cn=config" -f /openldap/postfix.ldif
+ldapadd -ZZ -x -W -D "cn=admin,cn=config" -f /openldap/hoge.ldif
 ```

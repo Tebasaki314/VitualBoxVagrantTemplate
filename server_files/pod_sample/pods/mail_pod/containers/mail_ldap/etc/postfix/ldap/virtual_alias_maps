@@ -1,0 +1,15 @@
+server_host = ldap://ldap_pod
+start_tls = no
+# version = 3
+# tls_ca_cert_file = /etc/ldap/tls/CA.pem
+# tls_require_cert = yes
+
+bind = yes
+bind_dn = cn=mailAccountReader,ou=Manager,dc=dev,dc=local
+bind_pw = mailAccountReader
+
+search_base = ou=Mail,dc=dev,dc=local
+scope = sub
+
+query_filter = mailacceptinggeneralid=%s
+result_attribute = maildrop

@@ -1,0 +1,18 @@
+# Use the official Debian slim base image
+FROM debian:stable-slim
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update the package list and install postfix and dovecot
+RUN apt-get update && \
+    apt-get install -y postfix postfix-ldap dovecot-core dovecot-imapd dovecot-ldap && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Expose the necessary ports
+EXPOSE 25 143
+
+# Start the services
+COPY entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]

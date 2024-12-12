@@ -5,6 +5,7 @@ echo "[Start] Creating the Nginx proxy container..."
 if podman ps | grep -q $NGINX_CONTAINER_NAME; then
     echo "Nginx proxy container is already running."
 else
+    echo ${NGINX_IMAGE_NAME}
     # Create a Podman container for nginx and attach it to the public network
     podman run -d \
         --pod ${PROXY_POD_NAME} \

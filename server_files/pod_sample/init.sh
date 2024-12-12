@@ -12,4 +12,6 @@ ${SCRIPT_DIR}/networks/create_base_networks.sh
 
 ${SCRIPT_DIR}/pods/ldap_pod/create_pod_ldap.sh
 
+${SCRIPT_DIR}/pods/mail_pod/create_pod_mail.sh
+
 ${SCRIPT_DIR}/pods/proxy_pod/create_pod_proxy.sh

@@ -28,6 +28,9 @@ echo "- Start install cockpit ..."
 
 . /etc/os-release
 sudo apt install -y -t ${VERSION_CODENAME}-backports cockpit cockpit-podman
+sudo mv ~/work/config/etc/cockpit/cockpit.conf /etc/cockpit/cockpit.conf
+sudo chown root:root /etc/cockpit/cockpit.conf
+sudo chmod 644 /etc/cockpit/cockpit.conf
 sudo systemctl restart cockpit
 
 echo "- End install cockpit ..."

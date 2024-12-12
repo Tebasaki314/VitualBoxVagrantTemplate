@@ -9,7 +9,9 @@ else
     podman run -d \
         --pod ${LDAP_POD_NAME} \
         --name $LDAP_CONTAINER_NAME \
+        -v ${LDAP_HOST_DIR}/:${LDAP_CONTAINER_DIR}/:ro \
         -e LDAP_ADMIN_PASSWORD=$LDAP_ADMIN_PASSWORD \
+        -e LDAP_CONFIG_PASSWORD=$LDAP_CONFIG_PASSWORD \
         -e LDAP_ORGANISATION=$LDAP_ORGANISATION \
         -e LDAP_DOMAIN=$LDAP_DOMAIN \
         $LDAP_IMAGE
